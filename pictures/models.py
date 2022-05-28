@@ -7,7 +7,7 @@ import datetime as dt
 class Image(models.Model):
     image_name = models.CharField(max_length=40)
     image_description = models.TextField(max_length=60)
-    image = models.ImageField(upload_to = 'pictures')
+    image = models.ImageField(upload_to = 'pictures/')
     date_posted = models.DateTimeField(auto_now_add=True)
     category = models.ForeignKey('Category', on_delete=models.CASCADE,null=True)
     location = models.ForeignKey('Location', on_delete=models.CASCADE,null=True)
@@ -72,7 +72,7 @@ class Location(models.Model):
         self.delete()
     
     def update_location(self,name):
-        self.name
+        self.name = name
         
     def __str__(self):
         return self.name
