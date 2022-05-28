@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Anek+Gujarati:wght@100;200;300;400;600&family=Fira+Sans:ital,wght@0,200;0,300;0,400;1,200;1,300&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-image: url('/static/images/index.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+
+
+}
+
+.header{
+    text-align: justify;
+    margin-top: 15%;
+    font-family: 'Anek Gujarati',
+    sans-serif;
+    font-family: 'Fira Sans',
+    sans-serif;
+    font-size: 20px;
+    color: rgb(86, 1, 76);
+    font-weight: 400;
+
+}
+
+.btn{
+    margin-left: 45%;
+    background-color: rgb(219, 230, 227);
+    border-radius: 15px;
+}
