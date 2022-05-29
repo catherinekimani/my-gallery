@@ -2,11 +2,25 @@
     <div class="container-fluid">
         <a class="navbar-brand"  href="/">Home</a>
         <a class="navbar-brand" href="{% url 'images' %}">Pictures</a>
-        <a class="navbar-brand">Location</a>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Locations
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="#">Nairobi</a></li>
+                <li><a class="dropdown-item" href="#">Italy</a></li>
+                <li><a class="dropdown-item" href="#">Mombasa</a></li>
+            </ul>
+        </div>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            {% for images in locations %}
+            <a class="dropdown-item" href="/location/{{images.location}}">{{images.location}}</a> {% endfor %}
+        </div>
         <div class="col-sm-4 col-md-4 navbar-right">
-            <form action="" role="search" class="navbar-form">
+            <form action="{% url 'search_results' %}" role="search" class="navbar-form">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search For Pictures" name="">
+                    <input type="text" class="form-control" placeholder="Search For Pictures" name="category">
                 </div>
             </form>
         </div>

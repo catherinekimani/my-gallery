@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row">
+    {% if images%}
+    <h2 class="text-light text-center">Found {{ images|length }} of searched term {{message}}</h2>
+    {% else %}
+    <h2 class="text-light text-center"> Found 0 images for the search term {{message}}</h2>
+    {% endif %}
+
+</div>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for images in images %}
+    <img src="{{images.image.url}}" class="img-responsive" alt="Image" height="300vh" width="100" data-bs-toggle="modal"
+        data-bs-target="#exampleModal{{images.id}}">
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal{{images.id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">{{images.image_name}}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Category: {{images.category}}</p>
+                    <p>Description: {{images.image_description|safe}}</p>
+                    <p>Location: {{images.location}}</p>
+                    <p>Date: {{images.date_posted}}</p>
+
+                    <img src="{{images.image.url}}" class="img-responsive" alt="Image" height="300vh" width="100%">
+                </div>
+                <div class="modal-footer">
+                    <input type="text" id="image_link" value="{{images.image.url}}"
+                        class="btn btn-outline-primary form-control">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
