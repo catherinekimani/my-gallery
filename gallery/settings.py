@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'pictures.apps.PicturesConfig',
     "bootstrap5",
+    "ckeditor",
     "django_static_fontawesome",
     'django.contrib.admin',
     'django.contrib.auth',
