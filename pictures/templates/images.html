@@ -17,7 +17,7 @@
             </div>
             <div class="modal-body">
                 <p>Category: {{images.category}}</p>
-                <p>Description: {{images.image_description}}</p>
+                <p>Description: {{images.image_description|safe}}</p>
                 <p>Location: {{images.location}}</p>
                 <p>Date: {{images.date_posted}}</p>
                 
@@ -25,6 +25,7 @@
             </div>
             <div class="modal-footer">
                 <input type="text" id="image_link" value="{{images.image.url}}" class="btn btn-outline-primary form-control">
+                <button onclick="myFunction()">Copy text</button>
                 <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
             </div>
         </div>
