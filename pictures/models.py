@@ -2,11 +2,12 @@ from distutils.command.upload import upload
 from unicodedata import category
 from django.db import models
 import datetime as dt
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 class Image(models.Model):
     image_name = models.CharField(max_length=40)
-    image_description = models.TextField(max_length=60)
+    image_description = RichTextField(blank=True, null=True)
     image = models.ImageField(upload_to = 'pictures/')
     date_posted = models.DateTimeField(auto_now_add=True)
     category = models.ForeignKey('Category', on_delete=models.CASCADE,null=True)
@@ -36,7 +37,7 @@ class Image(models.Model):
     
     @classmethod
     def search_by_category(cls,search_term):
-        category = cls.objects.filter(category__icontains=search_term)
+        category = cls.objects.filter(category__name=search_term)
         return category
     
     def __str__(self):
