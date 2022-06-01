@@ -24,13 +24,21 @@
                 <img src="{{images.image.url}}" class="img-responsive" alt="Image" height="300vh" width="100%">
             </div>
             <div class="modal-footer">
-                <input type="text" id="image_link" value="{{images.image.url}}" class="btn btn-outline-primary form-control">
-                <button onclick="myFunction()">Copy Link</button>
+                <input type="text" id="image_link" value="{{images.image.url}}" class="btn btn-outline-success form-control">
+                <button type="button" class="btn btn-primary" onclick="myFunction('{{ images.image.url }}')" id="copy_pin_link">copy
+                    link
+                </button>
                 <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    function myFunction(data) {
+        navigator.clipboard.writeText(window.location.origin + data)
+        alert("You have succefully copied the link!.");
+    }
+</script>
 {% endfor %}
 </div>
 {% endblock %}
