@@ -2,18 +2,6 @@
 
 ##### By Catherine Kimani
 
-### HomePage
-![catherine](/static/images/indexpage.png)
-
-### GalleryPage
-![catherine](/static/images/gallery.png)
-
-### ImageView
-![catherine](/static/images/click.png)
-
-### SearchImage
-![catherine](/static/images/search.png)
-
 ## Table of Content
 
 + [Description](#description)
