@@ -1,0 +1,48 @@
+    .back-home-button {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 9999;
+    }
+
+    .back-home-button a {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #ffffff;
+        color: #000000;
+        font-weight: bold;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .back-home-button a:hover {
+        background-color: #dddddd;
+    }
+
+    .back-home-button a i {
+        margin-right: 5px;
+    }
+.message-not-found {
+	text-align: center;
+	margin-top: 20px;
+	font-size: 20px;
+	color: #080808;
+}
+    .not-found-container {
+    	text-align: center;
+    	margin-top: 50px;
+    }
+
+    .not-found-image {
+    	width: 300px;
+    	height: 300px;
+    	margin-bottom: 20px;
+    }
+
+    .not-found-message {
+    	color: #666666;
+    	font-size: 24px;
+    	font-weight: bold;
+    }
