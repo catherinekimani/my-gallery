@@ -1,14 +1,85 @@
 {% extends 'base.html' %}
+{% load bootstrap5 %}
+{% load static%}
+<link rel="stylesheet" href="https://fonts.google.com/">
+{% block styles %}
+{% bootstrap_css %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+<link rel="stylesheet" type="text/css" href="{% static  'fontawesome/css/all.min.css' %}" />
+{% endblock %}
 {% block content %}
-<div class="home">
-<div class="header d-flex justify-content-center align-items-center flex-column min-vh-100 mx-auto w-75">
-<h1 class="text-center">La Galerie Nationale</h1>
-<p>"Welcome to La Galerie Nationale, a web application, made using django that allows user (s) to views photos of
-    different categories including; Food,Drinks,Animals etc. The application has a search functionality where user (s) can search for different category of images.
-    Duis
-    aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-    occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
-    <a href="/images" class="btn">Welcome</a>
-    </div>
-    </div>
+<header>
+    <h1 class="welcome-message">Welcome to the Image Gallery!</h1>
+    <a href="/images" class="welcome-button">Explore Images</a>
+</header>
+
+<main>
+
+    <section class="categories">
+        <div class="category">
+            <a href="#">
+                <div class="category-card">
+                    <span class="category-icon">
+                        <i class="fas fa-utensils"></i>
+                    </span>
+                    <span class="category-name">Food</span>
+                </div>
+            </a>
+        </div>
+        <div class="category">
+            <a href="#">
+                <div class="category-card">
+                    <span class="category-icon">
+                        <i class="fas fa-glass-martini"></i>
+                    </span>
+                    <span class="category-name">Drinks</span>
+                </div>
+            </a>
+        </div>
+        <div class="category">
+            <a href="#">
+                <div class="category-card">
+                    <span class="category-icon">
+                        <i class="fas fa-paw"></i>
+                    </span>
+                    <span class="category-name">Animals</span>
+                </div>
+            </a>
+        </div>
+        <div class="category">
+            <a href="#">
+                <div class="category-card">
+                    <span class="category-icon">
+                        <i class="fas fa-tree"></i>
+                    </span>
+                    <span class="category-name">Nature</span>
+                </div>
+            </a>
+        </div>
+        <div class="category">
+            <a href="#">
+                <div class="category-card">
+                    <span class="category-icon">
+                        <i class="fas fa-building"></i>
+                    </span>
+                    <span class="category-name">Architecture</span>
+                </div>
+            </a>
+        </div>
+        <div class="category">
+            <a href="#">
+                <div class="category-card">
+                    <span class="category-icon">
+                        <i class="fas fa-users"></i>
+                    </span>
+                    <span class="category-name">People</span>
+                </div>
+            </a>
+        </div>
+
+
+    </section>
+</main>
+<script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
 {% endblock %}

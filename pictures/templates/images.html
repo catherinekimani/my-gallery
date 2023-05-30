@@ -1,44 +1,46 @@
 {% extends 'base.html' %}
+{% load bootstrap5 %}
+{% load static%}
+<link rel="stylesheet" href="https://fonts.google.com/">
+{% block styles %}
+{% bootstrap_css %}
+<link rel="stylesheet" href="{% static 'css/images.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static  'fontawesome/css/all.min.css' %}" />
+
+{% endblock %}
+
 {% block content %}
 <!-- navbar -->
 {% block navbar %}
 {% include "navbar.html" %}
 {% endblock %}
-<div class="row row-cols-1 row-cols-md-3 g-4">
-{% for images in images %}
-<img src="{{images.image.url}}" class="img-responsive" alt="Image" height="300vh" width="100" data-bs-toggle="modal" data-bs-target="#exampleModal{{images.id}}">
-<!-- Modal -->
-<div class="modal fade" id="exampleModal{{images.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">{{images.image_name}}</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>Category: {{images.category}}</p>
-                <p>Description: {{images.image_description|safe}}</p>
-                <p>Location: {{images.location}}</p>
-                <p>Date: {{images.date_posted}}</p>
-                
-                <img src="{{images.image.url}}" class="img-responsive" alt="Image" height="300vh" width="100%">
-            </div>
-            <div class="modal-footer">
-                <input type="text" id="image_link" value="{{images.image.url}}" class="btn btn-outline-success form-control">
-                <button type="button" class="btn btn-primary" onclick="myFunction('{{ images.image.url }}')" id="copy_pin_link">copy
-                    link
-                </button>
-                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+
+<div class="row row-cols-1 row-cols-md-3 g-2">
+    {% for image in images %}
+    <div class="col">
+        <div class="card">
+            <img src="{{ image.image.url }}" class="card-image" alt="Image">
+            <div class="card-details">
+                <!-- <h5>{{ image.image_name }}</h5> -->
+                <p><strong></strong> {{ image.category }}</p>
+                <p><strong></strong> {{ image.image_description|safe }}</p>
+                <p><strong></strong> {{ image.location }}</p>
+                <p><strong></strong> {{ image.date_posted }}</p>
+                <div class="input-group">
+                    <input type="text" id="image_link" value="{{ image.image.url }}" class="form-control">
+                    <button type="button" class="btn btn-primary" onclick="myFunction('{{ image.image.url }}')"
+                        id="copy_pin_link">Copy Link</button>
+                </div>
             </div>
         </div>
     </div>
+    {% endfor %}
 </div>
+
 <script type="text/javascript">
     function myFunction(data) {
         navigator.clipboard.writeText(window.location.origin + data)
-        alert("You have succefully copied the link!.");
+        alert("You have successfully copied the link!");
     }
 </script>
-{% endfor %}
-</div>
 {% endblock %}

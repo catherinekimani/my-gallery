@@ -1,10 +1,19 @@
+{% load bootstrap5 %}
+{% load static%}
+<link rel="stylesheet" href="https://fonts.google.com/">
+{% block styles %}
+{% bootstrap_css %}
+<link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+
+<link rel="stylesheet" type="text/css" href="{% static  'fontawesome/css/all.min.css' %}" />
+{% endblock %}
+{% block navbar %}
 <nav class="navbar sticky-top">
     <div class="container-fluid">
-        <a class="navbar-brand"  href="/">Home</a>
-        <a class="navbar-brand" href="{% url 'images' %}">Pictures</a>
+        <a class="navbar-brand" href="/">Home</a>
         <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
-                aria-expanded="false">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                data-bs-toggle="dropdown" aria-expanded="false">
                 Locations
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -26,3 +35,4 @@
         </div>
     </div>
 </nav>
+{% endblock %}
