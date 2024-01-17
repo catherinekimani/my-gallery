@@ -21,7 +21,7 @@ MODE = os.getenv("MODE", default="dev")
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY')
+os.environ["SECRET_KEY"] = "django-insecure-br9sg3=_8&9^da)u^r6*bsb3_!u!7-ru#bh17p$1@m9jd0p3@5"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', default=str(False))
@@ -77,18 +77,16 @@ WSGI_APPLICATION = 'gallery.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-if os.getenv('MODE')=="dev":
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': os.getenv('DB_NAME'),
-            'USER': os.getenv('DB_USER'),
-            'PASSWORD': os.getenv('DB_PASSWORD'),
-            'HOST': os.getenv('DB_HOST'),
-            'PORT': '',
-        }
-
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'gallery',
+        'USER': 'user',
+        'PASSWORD': '0743566442',
+        'HOST': 'CatherineKimani.pythonanywhere.com',
+        'PORT': '',
     }
+}
 ALLOWED_HOSTS = ['*']
 
 
