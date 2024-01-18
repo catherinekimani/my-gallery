@@ -26,6 +26,7 @@
 * View photos based on the location they were taken.
 
 ## Live Link
+https://gallery-w19v.onrender.com/
 
 ## Installation
 
