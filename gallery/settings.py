@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 import os
+
 import dj_database_url
 import dotenv
 dotenv.load_dotenv()
@@ -79,17 +80,12 @@ WSGI_APPLICATION = 'gallery.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 # if os.getenv('MODE') == "dev":
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('DB_NAME'),
-        'USER': os.getenv('DB_USER'),
-        'PASSWORD': os.getenv('DB_PASSWORD'),
-        'HOST': os.getenv('DB_HOST'),
-        'PORT': os.getenv('DB_PORT', '5432'),
-    }
-}
-ALLOWED_HOSTS = ['*']
+
+DATABASE_URL = os.getenv('DATABASE_URL')
+
+DATABASES = {'default': dj_database_url.config(default=DATABASE_URL)}
+
+ALLOWED_HOSTS = ['https://gallery-w19v.onrender.com', '127.0.0.1']
 
 
 # Password validation
