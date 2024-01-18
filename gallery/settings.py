@@ -85,7 +85,7 @@ DATABASE_URL = os.getenv('DATABASE_URL')
 
 DATABASES = {'default': dj_database_url.config(default=DATABASE_URL)}
 
-ALLOWED_HOSTS = ['https://gallery-w19v.onrender.com', '127.0.0.1']
+ALLOWED_HOSTS = ['gallery-w19v.onrender.com', '127.0.0.1']
 
 
 # Password validation
